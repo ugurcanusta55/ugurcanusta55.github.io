@@ -1,0 +1,421 @@
+{
+	"info": {
+		"_postman_id": "e76e04f0-2e1e-4baf-b666-9de3a0205d55",
+		"name": "n2mobil",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"TEST\",\n    \"password\":\"TEST\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.wetrack.tech/auth/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"wetrack",
+								"tech"
+							],
+							"path": [
+								"auth",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Kilometre Raporu",
+			"item": [
+				{
+					"name": "kilometre raporu",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n    \"params\": {\n        \"start_date\": \"1.06.2022 00:00\",\n        \"end_date\": \"1.06.2022 23:59\",\n        \"vehicles\": [\n            {\n                \"label\": \"06TEST0606\",\n                \"value\": 123\n            },\n            {\n                \"label\": \"34TEST3434\",\n                \"value\": 124\n            }\n        ],\n        \"report\": 3,\n        \"server_side\": true\n    },\n    \"page\": 1,\n    \"limit\": 10\n}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.wetrack.tech/ats/ats/get_report_data",
+							"protocol": "https",
+							"host": [
+								"api",
+								"wetrack",
+								"tech"
+							],
+							"path": [
+								"ats",
+								"ats",
+								"get_report_data"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Araç Grupları Listesi",
+			"item": [
+				{
+					"name": "arac_grupları_listesi",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.wetrack.tech/ats/ats/vehicle_group_list?fleet_id=122",
+							"protocol": "https",
+							"host": [
+								"api",
+								"wetrack",
+								"tech"
+							],
+							"path": [
+								"ats",
+								"ats",
+								"vehicle_group_list"
+							],
+							"query": [
+								{
+									"key": "fleet_id",
+									"value": "122"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "grup_noktalari_listesi",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fleet_id\": 123,\n    \"group_id\": \"26\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.wetrack.tech/ats/ats/get_group_all_points",
+							"protocol": "https",
+							"host": [
+								"api",
+								"wetrack",
+								"tech"
+							],
+							"path": [
+								"ats",
+								"ats",
+								"get_group_all_points"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alan_giris_cikis_raporu",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sort\": [\n    {\n      \"field\": \"vehicle_plate\",\n      \"type\": \"asc\"\n    },\n    {\n      \"field\": \"enter_date\",\n      \"type\": \"asc\"\n    }\n  ],\n  \"page\": 1,\n  \"limit\": 100,\n  \"start_date\": 1654030800,\n  \"end_date\": 1654117140,\n  \"vehicles\": \"211,499,510,572,578\",\n  \"points\": \"1072,850,1065,1016\",\n  \"fleet_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.wetrack.tech/ats/ats/detailed_area_entrance_exitance_report",
+							"protocol": "https",
+							"host": [
+								"api",
+								"wetrack",
+								"tech"
+							],
+							"path": [
+								"ats",
+								"ats",
+								"detailed_area_entrance_exitance_report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Güvenli Sürüş",
+			"item": [
+				{
+					"name": "guvenli_surus",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"params\": {\n      \"start_date\": \"1.06.2022 00:00\",\n      \"end_date\": \"1.06.2022 23:59\",\n      \"vehicles\": [\n        {\n          \"label\": \"06TEST0606\",\n          \"value\": 123\n        },\n        {\n          \"label\": \"34TEST3434\",\n          \"value\": 124\n        }\n      ],\n      \"report\": 14,\n      \"server_side\": true\n    },\n    \"page\": 1,\n    \"limit\": 10\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.wetrack.tech/ats/ats/get_report_data",
+							"protocol": "https",
+							"host": [
+								"api",
+								"wetrack",
+								"tech"
+							],
+							"path": [
+								"ats",
+								"ats",
+								"get_report_data"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Park Alarmı",
+			"item": [
+				{
+					"name": "park_alarmi",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fleet_id\": 1,\n  \"data\": {\n    \"limit\": 10,\n    \"page\": 1,\n    \"s_ts\": 1654030800,\n    \"e_ts\": 1654117140,\n    \"alarm_type\": 4\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.wetrack.tech/ats/ats/alarm_report_table",
+							"protocol": "https",
+							"host": [
+								"api",
+								"wetrack",
+								"tech"
+							],
+							"path": [
+								"ats",
+								"ats",
+								"alarm_report_table"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mesai Dışı Km Raporu",
+			"item": [
+				{
+					"name": "mesai_disi_km_raporu",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"params\": {\n      \"start_date\": \"1.06.2022\",\n      \"end_date\": \"1.06.2022\",\n      \"vehicles\": [\n        {\n          \"value\": 123\n        }\n      ],\n      \"report\": 7\n    },\n    \"page\": 1,\n    \"limit\": 10\n  },\n  \"fleet_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.wetrack.tech/ats/report/get_report",
+							"protocol": "https",
+							"host": [
+								"api",
+								"wetrack",
+								"tech"
+							],
+							"path": [
+								"ats",
+								"report",
+								"get_report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Araç Listesi",
+			"item": [
+				{
+					"name": "arac_listesi",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fleet_id",
+									"value": "",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.wetrack.tech/ats/ats/get_devices_last_signal?fleet_id=123",
+							"protocol": "https",
+							"host": [
+								"api",
+								"wetrack",
+								"tech"
+							],
+							"path": [
+								"ats",
+								"ats",
+								"get_devices_last_signal"
+							],
+							"query": [
+								{
+									"key": "fleet_id",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
