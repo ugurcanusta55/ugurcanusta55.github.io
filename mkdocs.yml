@@ -1,0 +1,112 @@
+site_name: N2Mobil Web Servis Dökümanı
+theme:
+  name: material
+  logo: "https://n2mobil.com.tr/images/logo.png"
+  favicon: "https://n2mobil.com.tr/images/favicon.ico"
+
+  icon:
+    admonition:
+      example: fontawesome/solid/flask
+    tag:
+      html: fontawesome/brands/html5
+
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  language: tr
+  font:
+    text: Roboto
+
+  features:
+    # - navigation.tabs # Menünün navbar da gözükmesini sağlar
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.tabs.link
+    - toc.integrate # Sağ tarafta yer alan içindekileri sidebar'ın içine ekliyor.
+    - navigation.top # Sayfanın alt kısmından back to top yapmaya yarar
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - toc:
+      permalink: true
+
+copyright: |
+  &copy; 2022 N2Mobile . Her hakkı saklıdır.
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/n2mobilcomtr
+
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/n2mobil.com.tr/
+
+    - icon: fontawesome/brands/facebook
+      link: https://tr-tr.facebook.com/n2mobil.com.tr/
+
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: Türkçe
+      link: /tr/
+      lang: tr
+
+  generator: false
+
+plugins:
+  - search:
+      lang:
+        - en
+        - tr
+        - ru
+
+extra_css:
+  - stylesheets/extra.css
+
+  # Set Cookies
+  # consent:
+  #   actions:
+  #     - accept
+  #     - manage
+
+nav:
+  - Genel Bakış: "index.md"
+  - Araç Takip Sistemi: "pages/n2webservice/aboutn2.md"
+  - Web Servis Dökümantasyonu: "pages/n2webservice/documentation.md"
+
+  - API:
+      - Araç Takip Sistemi(ATS):
+          - Login: "pages/n2webservice/login.md"
+          - Kilometre Raporu: "pages/vehicletracking/kmreport.md"
+          - Araç Grupları Listesi: "pages/vehicletracking/vehiclegrouplist.md"
+          - Güvenli Sürüş: "pages/vehicletracking/safedriving.md"
+          - Park Alarmı: "pages/vehicletracking/alarmreport.md"
+          - Mesai Dışı Km Raporu: "pages/vehicletracking/offhourskmreport.md"
+          - Araç Listesi: "pages/vehicletracking/carlist.md"
+      - Filo Yönetim Sistemi(FYS):
+          - Login: "pages/fleetmanagementsystem/fleetmanagement.md"
